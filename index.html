@@ -2,34 +2,41 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="300">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiosk Launcher</title>
 <style>
-html, body {
-margin: 0;
-padding: 0;
-height: 100%;
+body {
 background: black;
 color: white;
-font-family: sans-serif;
-display: flex;
-justify-content: center;
-align-items: center;
+font-family: Arial;
+text-align: center;
+padding-top: 80px;
+}
+button {
+font-size: 24px;
+padding: 20px;
+margin: 20px;
 }
 </style>
 </head>
-
 <body>
-<div>
-<h2>Opening Job Page...</h2>
-<p>If nothing happens, click below:</p>
-<a href="https://phoenix.spieshecker.com/pt/JobBrowser.mvc" style="color:cyan;font-size:20px;">
-Open Job Portal
-</a>
-</div>
+
+<h1>Job Kiosk</h1>
+
+<button onclick="openJob()">Open Job Page</button>
 
 <script>
-window.location.href = "https://phoenix.spieshecker.com/pt/JobBrowser.mvc";
+function openJob() {
+const win = window.open("https://phoenix.spieshecker.com/pt/JobBrowser.mvc");
+
+// try to inject auto-refresh after load
+const timer = setInterval(() => {
+try {
+win.eval("setInterval(function(){ location.reload(); }, 300000);");
+clearInterval(timer);
+} catch (e) {}
+}, 2000);
+}
 </script>
+
 </body>
 </html>
