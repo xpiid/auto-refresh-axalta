@@ -2,30 +2,34 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="600">
+<meta http-equiv="refresh" content="300">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
 html, body {
 margin: 0;
 padding: 0;
 height: 100%;
-overflow: hidden;
 background: black;
-}
-
-iframe {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-border: none;
+color: white;
+font-family: sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 </style>
 </head>
 
 <body>
-<iframe src="https://phoenix.spieshecker.com/pt/JobBrowser.mvc"></iframe>
+<div>
+<h2>Opening Job Page...</h2>
+<p>If nothing happens, click below:</p>
+<a href="https://phoenix.spieshecker.com/pt/JobBrowser.mvc" style="color:cyan;font-size:20px;">
+Open Job Portal
+</a>
+</div>
+
+<script>
+window.location.href = "https://phoenix.spieshecker.com/pt/JobBrowser.mvc";
+</script>
 </body>
 </html>
